@@ -28,7 +28,7 @@ dnl set up automake
 AM_INIT_AUTOMAKE([-Wall foreign])
 dnl Audacity policy: don't enable automatic rebuild of configure et al if 
 dnl sources change
-AM_MAINTAINER_MODE([enabled])
+AC_CONFIG_HEADERS(config.h)
 
 dnl -------------------------------------------------------
 dnl Checks for programs.
@@ -50,6 +50,8 @@ dnl we will need an "install" program to be available
 AC_PROG_INSTALL
 dnl and ranlib for static libraries
 AC_PROG_RANLIB
+dnl and libtool for shared libraries
+AC_PROG_LIBTOOL
 
 dnl Make the install prefix available to the program so that the pkg-config file
 dnl can be created correctly

@@ -3,13 +3,13 @@
 # Written by Richard Ash following Gary Vaughan's Autobook
 
 # tell aclocal that extra macros can be found in autotools/m4/
-ACLOCAL_AMFLAGS = -I autotools/m4
+#ACLOCAL_AMFLAGS = -I autotools/m4
 
 # define the output library (link with -lportSMF)
-lib_LIBRARIES = libportSMF.a
+lib_LTLIBRARIES = libportSMF.la
 
 # define the source files to use
-libportSMF_a_SOURCES = allegro.cpp \
+libportSMF_la_SOURCES = allegro.cpp \
 	allegrosmfwr.cpp \
 	allegrord.cpp \
 	allegrowr.cpp \
@@ -28,6 +28,9 @@ include_HEADERS = allegro.h \
 	mfmidi.h \
 	strparse.h \
 	trace.h
+
+pkgconfigdir = $(libdir)/pkgconfig
+pkgconfig_DATA = portSMF.pc
 
 # files that only really viscous cleans remove
 MAINTAINERCLEANFILES = Makefile.in
